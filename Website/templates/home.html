@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+    <div>
+        <h1 class="fw-bold">শুভ দুর্গা পূজা ২০২৫</h1>
+        <p class="lead">Celebrate the spirit of Durga Puja with joy, devotion, and colors!</p>
+    </div>
+</div>
+
+<!-- Events Section -->
+<div class="container my-5">
+    <h2 class="text-center text-danger mb-4">Festival Events</h2>
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow event-card">
+                <img src="{{ url_for('static', filename=event.image) }}" class="card-img-top" alt="{{ event.title }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-danger">{{ event.title }}</h5>
+                    <p class="card-text">{{ event.desc }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Gallery Section -->
+<div class="container my-5">
+    <h2 class="text-center text-warning mb-4">Gallery</h2>
+    <div class="row">
+        <div class="col-md-4 mb-3"><img src="{{ url_for('static', filename='images/astomi.jpg') }}" class="img-fluid rounded shadow"></div>
+        <div class="col-md-4 mb-3"><img src="{{ url_for('static', filename='images/dosomi.jpg') }}" class="img-fluid rounded shadow"></div>
+        <div class="col-md-4 mb-3"><img src="{{ url_for('static', filename='images/gallery3.jpg') }}" class="img-fluid rounded shadow"></div>
+    </div>
+</div>
+
+{% endblock %}

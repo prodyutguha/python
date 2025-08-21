@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Carousel Section -->
+<div id="pujaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ url_for('static', filename='images/astomi.jpg') }}" class="d-block w-100 hero-section" alt="Durga Puja 1">
+      <div class="carousel-caption">
+        <h1 class="fw-bold text-white">শুভ দুর্গা পূজা ২০২৫</h1>
+        <p>Celebrate the spirit of Durga Puja with joy, devotion, and colors!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/dosomi.jpg') }}" class="d-block w-100 hero-section" alt="Durga Puja 2">
+      <div class="carousel-caption">
+        <h1 class="fw-bold text-white">দেবীর আগমনী</h1>
+        <p>Experience the lights, music, and festive vibes!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/hero3.jpg') }}" class="d-block w-100 hero-section" alt="Durga Puja 3">
+      <div class="carousel-caption">
+        <h1 class="fw-bold text-white">পূজার আনন্দ</h1>
+        <p>Join the celebrations across the city!</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#pujaCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#pujaCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Events Section -->
+<div class="container my-5">
+    <h2 class="text-center text-danger mb-4">Festival Events</h2>
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow event-card">
+                <img src="{{ url_for('static', filename=event.image) }}" class="card-img-top" alt="{{ event.title }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-danger">{{ event.title }}</h5>
+                    <p class="card-text">{{ event.desc }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Gallery Section -->
+<div class="container my-5">
+    <h2 class="text-center text-warning mb-4">Gallery</h2>
+    <div class="row">
+        <div class="col-md-4 mb-3"><img src="{{ url_for('static', filename='images/astomi.jpg') }}" class="img-fluid rounded shadow"></div>
+        <div class="col-md-4 mb-3"><img src="{{ url_for('static', filename='images/dosomi.jpg') }}" class="img-fluid rounded shadow"></div>
+        <div class="col-md-4 mb-3"><img src="{{ url_for('static', filename='images/gallery3.jpg') }}" class="img-fluid rounded shadow"></div>
+    </div>
+</div>
+
+{% endblock %}
